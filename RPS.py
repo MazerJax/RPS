@@ -1,6 +1,6 @@
 from re import S
 import pygame, random, sys
-
+import os
 
 '''class RPS:
     def __init__(self, type, position, rock_image):
@@ -27,7 +27,7 @@ import pygame, random, sys
         self.health -= 0.15'''
 
 class Rock:
-    speed = 10
+    speed = 5
     def __init__(self, rock_image, position):
         self.position = position 
         self.type = type
@@ -44,7 +44,7 @@ class Rock:
         self.rectangle.move_ip(x_change, y_change)
 
 class Paper:
-    speed = 10
+    speed = 5
     def __init__(self, rock_image, position):
         self.position = position 
         self.type = type
@@ -61,7 +61,7 @@ class Paper:
         self.rectangle.move_ip(x_change, y_change)
 
 class Scissors:
-    speed = 10
+    speed = 5
     def __init__(self, rock_image, position):
         self.position = position 
         self.type = type
@@ -81,6 +81,12 @@ class Scissors:
 
 
 def main():
+    
+    #debugging to check images are in directory
+    path = 'D:\Programming\Github\RPS'
+    print(os.path.isfile(path))
+
+    print(os.getcwd()) 
 
     pygame.init()
     size = width, height = (600, 400)
