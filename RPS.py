@@ -79,7 +79,7 @@ import os
 
 
 class play_obj:
-    speed = 5
+    speed = 1
     def __init__(self, rock_image, position):
         self.position = position 
         self.type = type
@@ -122,9 +122,28 @@ def main():
     paper_image = pygame.image.load("paper.png")
     paper_image = pygame.transform.smoothscale(paper_image, (30,30))
 
-    scissors_image = pygame.image.load("scissors.png")
-    scissors_image = pygame.transform.smoothscale(scissors_image, (30,30))
+    scissor_image = pygame.image.load("scissors.png")
+    scissor_image = pygame.transform.smoothscale(scissor_image, (30,30))
 
+
+    print(random.randint(0,width))
+
+    rocklist = []
+    for count in range(15):
+        rock_obj = play_obj(rock_image, ((random.randint(0,width)), random.randint(0,height)))
+        rocklist.append(rock_obj)
+       
+    paperlist = []
+    for count in range(15):
+        paper_obj = play_obj(paper_image, (random.randint(0,width), random.randint(0,height)))
+        paperlist.append(paper_obj)
+
+    scissorlist = []
+    for count in range(15):
+        scissor_obj = play_obj(scissor_image, (random.randint(0,width), random.randint(0,height)))
+        scissorlist.append(scissor_obj)
+ 
+ 
     while True:
 
         for event in pygame.event.get():
@@ -132,21 +151,23 @@ def main():
                 pygame.quit()
                 sys.exit()
 
+       
+       
+       
         screen.fill((120,120,120))
         
-        rpsObj = play_obj(rock_image, (300, 200))
-        rpsObj.move()
-        rpsObj.draw(screen)
-
-        rpsObj2 = play_obj(paper_image, (200,200))
-        rpsObj2.move()
-        rpsObj2.draw(screen)
-
-        rpsObj3 = play_obj(scissors_image, (400,200))
-        rpsObj3.move()
-        rpsObj3.draw(screen)
+        for rock in rocklist:
+            rock.move()
+            rock.draw(screen)
         
-
+        for paper in paperlist:
+            paper.move()
+            paper.draw(screen)
+        
+        for scissor in scissorlist:
+            scissor.move()
+            scissor.draw(screen)
+        
         pygame.display.update()
 
 if __name__ == '__main__':
