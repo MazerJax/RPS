@@ -113,8 +113,12 @@ def main():
     pygame.init()
     size = width, height = (600, 400)
     
-    screen = pygame.display.set_mode(size)
-    screen.fill((0,0,0))
+    screen = pygame.display.set_mode(size)   #flags=pygame.FULLSCREEN
+    pygame.display.set_caption('Rock, Paper and Scissors Battle')
+    icon = pygame.image.load("scissors.png")
+    icon = pygame.transform.smoothscale(icon, (50,50))
+    pygame.display.set_icon(icon)
+    screen.fill((120,20,90))
 
     rock_image = pygame.image.load("rock.png")
     rock_image = pygame.transform.smoothscale(rock_image, (30,30))
@@ -129,17 +133,17 @@ def main():
     print(random.randint(0,width))
 
     rocklist = []
-    for count in range(15):
+    for count in range(20):
         rock_obj = play_obj(rock_image, ((random.randint(0,width)), random.randint(0,height)))
         rocklist.append(rock_obj)
        
     paperlist = []
-    for count in range(15):
+    for count in range(20):
         paper_obj = play_obj(paper_image, (random.randint(0,width), random.randint(0,height)))
         paperlist.append(paper_obj)
 
     scissorlist = []
-    for count in range(15):
+    for count in range(20):
         scissor_obj = play_obj(scissor_image, (random.randint(0,width), random.randint(0,height)))
         scissorlist.append(scissor_obj)
  
@@ -151,7 +155,9 @@ def main():
                 pygame.quit()
                 sys.exit()
 
-       
+        for rock in rocklist:
+            pass
+
        
        
         screen.fill((120,120,120))
