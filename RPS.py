@@ -100,7 +100,7 @@ class play_obj:
 
 def main():
     
-    #debugging to check images are in directory
+    #debugging
     path = 'D:\Programming\Github\RPS\RPS.py'
     print(os.path.isfile(path))
 
@@ -157,9 +157,24 @@ def main():
 
         for rock in rocklist:
             for scissor in scissorlist:
-                
-                pass
-        pass
+                if rock.rectangle.collidepoint(scissor.rectangle.center):
+                    replace_obj = play_obj(rock_image, (scissor.rectangle.center))
+                    rocklist.append(replace_obj)
+                    scissorlist.remove(scissor)
+
+        for paper in paperlist:
+            for rock in rocklist:
+                if paper.rectangle.collidepoint(rock.rectangle.center):
+                    replace_obj = play_obj(paper_image, (rock.rectangle.center))
+                    paperlist.append(replace_obj)
+                    rocklist.remove(rock)
+
+        for scissor in scissorlist:
+            for paper in paperlist:
+                if scissor.rectangle.collidepoint(paper.rectangle.center):
+                    replace_obj = play_obj(scissor_image, (paper.rectangle.center))
+                    scissorlist.append(replace_obj)
+                    paperlist.remove(paper) 
 
        
        
