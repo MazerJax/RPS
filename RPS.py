@@ -156,7 +156,10 @@ def main():
                 sys.exit()
 
         for rock in rocklist:
-            pass
+            for scissor in scissorlist:
+                
+                pass
+        pass
 
        
        
