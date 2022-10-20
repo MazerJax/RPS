@@ -101,7 +101,7 @@ class play_obj:
 def main():
     
     #debugging to check images are in directory
-    path = 'D:\Programming\Github\RPS'
+    path = 'D:\Programming\Github\RPS\RPS.py'
     print(os.path.isfile(path))
 
     print(os.getcwd()) 
