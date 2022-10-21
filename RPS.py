@@ -146,6 +146,8 @@ def main():
     for count in range(20):
         scissor_obj = play_obj(scissor_image, (random.randint(0,width), random.randint(0,height)))
         scissorlist.append(scissor_obj)
+
+    print(rocklist)
  
  
     while True:
@@ -178,7 +180,7 @@ def main():
 
        
        
-        screen.fill((120,120,120))
+        screen.fill((204,255,255))
         
         for rock in rocklist:
             rock.move()
