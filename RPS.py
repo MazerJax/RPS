@@ -1,6 +1,7 @@
+from os import environ
+environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
 from re import S
 import pygame, random, sys
-import os
 
 '''class RPS:
     def __init__(self, type, position, rock_image):
